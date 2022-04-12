@@ -1,318 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #000;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #000;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #000;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #000;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #000;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #000;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>Why do you need Insurance Agency? | Luxe Insurance Brookers</title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item">
+          <a href="https://luxeinsurancebrokers.com/">Main</a>
+        </li>
+        <li class="nav-item">
+          <a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>Why do you need Insurance Agency?</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/yy3i1hfu638"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <a
+            class="button-link"
+            href="https://luxeinsurancebrokers.com/why-do-you-need-insurance-agency/"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            We all need insurance. We need it to protect our health, our
+            property, and our loved ones. But why do we need an insurance
+            agency? What purpose does it serve? An insurance agency is a
+            <a
+              href="https://luxeinsurancebrokers.com/business-owners-insurance-scottsdale-arizona/"
+              >business that provides insurance to its customers</a
+            >. It acts as a middleman between the customer and the insurance
+            company. The customer pays the agency, and the agency pays the
+            insurance company. This way, the customer doesn’t have to go
+            directly through the company, which would be difficult and
+            time-consuming.
+          </p>
+          <p>
+            An insurance agency can provide a variety of different types of
+            insurance policies, including health, property, life, auto, and
+            home. It can also provide coverage for businesses. In addition to
+            providing policies, an agency can also help customers file claims
+            and give them advice on which policies would be best for them.
+          </p>
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>Why do you need Insurance Agency? | Luxe Insurance Brookers</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="https://luxeinsurancebrokers.com/">Main</a></li>
-      <li class="nav-item"><a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-      
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>Why do you need Insurance Agency?</h1>
-      </section>
-
-     
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/yy3i1hfu638" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <a class="button-link"
-                href="https://luxeinsurancebrokers.com/why-do-you-need-insurance-agency/">Read Post</a>
-      </section>
-
-      <section>
-        <p>We all need insurance. We need it to protect our health, our property, and our loved ones. But why do we need an insurance agency? What purpose does it serve? An insurance agency is a <a href="https://luxeinsurancebrokers.com/business-owners-insurance-scottsdale-arizona/">business that provides insurance to its customers</a>. It acts as a middleman between the customer and the insurance company. The customer pays the agency, and the agency pays the insurance company. This way, the customer doesn’t have to go directly through the company, which would be difficult and time-consuming.</p>
-        <p>An insurance agency can provide a variety of different types of insurance policies, including health, property, life, auto, and home. It can also provide coverage for businesses. In addition to providing policies, an agency can also help customers file claims and give them advice on which policies would be best for them.</p>
-      </section>
-      
-      <section>
-        
-        <div class="two-col">
-          <div style="display:flex; flex-direction: column; justify-content:center;">
-            <h2>Everyone needs insurance to protect themselves and their property</h2>
-            <p>No one knows when an unexpected event will occur that could potentially ruin their life. That is why it is important to have insurance, in case something happens and you are not able to financially recover on your own. Insurance companies exist to help people in these types of situations, by giving them money to help cover the costs of whatever incident occurred. This can be extremely helpful for people who find themselves in difficult circumstances, as it can prevent them from going into debt or becoming homeless.</p>
+        <section>
+          <div class="two-col">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h2>
+                Everyone needs insurance to protect themselves and their
+                property
+              </h2>
+              <p>
+                No one knows when an unexpected event will occur that could
+                potentially ruin their life. That is why it is important to have
+                insurance, in case something happens and you are not able to
+                financially recover on your own. Insurance companies exist to
+                help people in these types of situations, by giving them money
+                to help cover the costs of whatever incident occurred. This can
+                be extremely helpful for people who find themselves in difficult
+                circumstances, as it can prevent them from going into debt or
+                becoming homeless.
+              </p>
+            </div>
+            <div>
+              <img
+                style="height: 350px"
+                src="https://lh3.googleusercontent.com/geougc/AF1QipPtaac_5ILAYOgIUbMtfOsKBIHI3aAEAloSW2HY=h400-no"
+                alt="Insurance Agency Scottsdale, AZ"
+              />
+            </div>
           </div>
-          <div>
-            <img style="height: 350px" src="https://lh3.googleusercontent.com/geougc/AF1QipPtaac_5ILAYOgIUbMtfOsKBIHI3aAEAloSW2HY=h400-no" alt="Insurance Agency Scottsdale, AZ">
+          <p>
+            There are many different types of insurance available, so it is
+            important to research which one is best for you and your family.
+            Some common types of insurance include health insurance, car
+            insurance, and homeowners/renters insurance. Each type of policy has
+            its own set of benefits and drawbacks, so it is important to find
+            one that fits your specific needs
+          </p>
+          <a class="button-link" href="https://luxeinsurancebrokers.com/"
+            >Visit Us</a
+          >
+        </section>
+
+        <section>
+          <h2>
+            Insurance protects you from liability in case of an accident or
+            injury
+          </h2>
+          <p>
+            No one knows when an accident will happen, and in a split second,
+            your life can change forever. That’s why it’s important to have
+            insurance, which can help protect you financially in the event of an
+            unexpected tragedy. Accidents can happen at any time, and they can
+            be costly both emotionally and financially. That’s where insurance
+            comes in – it can help you recover from a traumatic event without
+            going into debt.
+          </p>
+          <p>
+            There are many different types of insurance available, so it’s
+            important to choose the right policy for your needs.
+            <a
+              href="https://luxeinsurancebrokers.com/home-insurance-scottsdale-arizona/"
+              >Homeowners insurance</a
+            >, for example, is crucial if you own a house – it protects you from
+            financial losses if your home is damaged or destroyed. Car insurance
+            is also essential, as it can help cover the costs of repairs or
+            replacements if your car is damaged in an accident.
+          </p>
+        </section>
+
+        <section>
+          <div class="two-col">
+            <div>
+              <img
+                style="width: 100%"
+                src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/Commercial-Umbrella-Insurance-Coverage-Basics.jpg"
+                alt="Insurance Agency Scottsdale, AZ"
+              />
+            </div>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h2>
+                Insurance can help you rebuild your life after a natural
+                disaster
+              </h2>
+              <p>
+                Most people think that insurance is something that they only
+                need when something bad happens. While it is certainly true that
+                insurance can help you rebuild your life after a natural
+                disaster, there are many other reasons why you should have
+                insurance.
+              </p>
+              <p>
+                One of the main reasons to have insurance is because it can help
+                you protect your finances in the event of an emergency. If you
+                are injured and can’t work, for example, insurance can help you
+                pay for medical bills and lost wages. If your home is damaged in
+                a storm, insurance can help you pay for repairs or replacement
+                costs.
+              </p>
+              <p>
+                Another reason to have insurance is that it can help you protect
+                your family. If something happens to you, your family will be
+                able to continue living their lives with the help of your
+                insurance policy. If you have young children, insurance can also
+                help you pay for their education if something happens to you.
+              </p>
+              <p>
+                Insurance is also important because it can help you protect your
+                assets. If you are sued for damages, for example, insurance can
+                help you pay for legal fees. It can also help you pay for
+                damages if you are found liable in a court of law.
+              </p>
+            </div>
           </div>
-        </div>
-        <p>There are many different types of insurance available, so it is important to research which one is best for you and your family. Some common types of insurance include health insurance, car insurance, and homeowners/renters insurance. Each type of policy has its own set of benefits and drawbacks, so it is important to find one that fits your specific needs</p>
-          <a class="button-link"
-                href="https://luxeinsurancebrokers.com/">Visit Us</a>
-      </section>
+        </section>
 
-      <section>
-        <h2>Insurance protects you from liability in case of an accident or injury</h2>
-        <p>No one knows when an accident will happen, and in a split second, your life can change forever. That’s why it’s important to have insurance, which can help protect you financially in the event of an unexpected tragedy. Accidents can happen at any time, and they can be costly both emotionally and financially. That’s where insurance comes in – it can help you recover from a traumatic event without going into debt.</p>
-        <p>There are many different types of insurance available, so it’s important to choose the right policy for your needs. <a href="https://luxeinsurancebrokers.com/home-insurance-scottsdale-arizona/">Homeowners insurance</a>, for example, is crucial if you own a house – it protects you from financial losses if your home is damaged or destroyed. Car insurance is also essential, as it can help cover the costs of repairs or replacements if your car is damaged in an accident.</p>
-      </section>
+        <section>
+          <h2>
+            Insurance is affordable and easy to get, so there’s no reason not to
+            have it
+          </h2>
+          <p>
+            Most people believe that they don’t need insurance because it’s
+            expensive and they think that they are unlikely to ever have an
+            accident. However, the truth is that insurance is affordable and
+            easy to get, so there’s no reason not to have it. In fact, not
+            having insurance can be very costly in the long run.
+          </p>
+          <p>
+            Insurance is a form of protection that helps you financially if
+            something goes wrong. For example, if you are in a car accident and
+            you are injured, your insurance will help pay for your medical
+            expenses. Or if your house catches on fire, your insurance will help
+            pay for the damage. Insurance can also protect you financially if
+            you are sued for something that you did wrong.
+          </p>
+          <p>
+            There are many different types of insurance, and each one serves a
+            different purpose. The most common types of insurance are car
+            insurance, health insurance, and homeowner’s insurance. However,
+            there are also other types of insurance such as
+            <a href="https://luxeinsurancebrokers.com/life-insurance/"
+              >life insurance</a
+            >, disability insurance, and pet insurance.
+          </p>
+        </section>
 
-      <section>
-        <div class="two-col">
-          <div>
-            <img style="width: 100%" src="https://secureservercdn.net/198.71.233.70/n8e.647.myftpupload.com/wp-content/uploads/2021/09/Commercial-Umbrella-Insurance-Coverage-Basics.jpg" alt="Insurance Agency Scottsdale, AZ">
-          </div>
-          <div style="display:flex; flex-direction:column; justify-content:center">
-            <h2>Insurance can help you rebuild your life after a natural disaster</h2>
-            <p>Most people think that insurance is something that they only need when something bad happens. While it is certainly true that insurance can help you rebuild your life after a natural disaster, there are many other reasons why you should have insurance.</p>
-            <p>One of the main reasons to have insurance is because it can help you protect your finances in the event of an emergency. If you are injured and can’t work, for example, insurance can help you pay for medical bills and lost wages. If your home is damaged in a storm, insurance can help you pay for repairs or replacement costs.</p>
-            <p>Another reason to have insurance is that it can help you protect your family. If something happens to you, your family will be able to continue living their lives with the help of your insurance policy. If you have young children, insurance can also help you pay for their education if something happens to you.</p>
-            <p>Insurance is also important because it can help you protect your assets. If you are sued for damages, for example, insurance can help you pay for legal fees. It can also help you pay for damages if you are found liable in a court of law.</p>
-          </div>
-        </div>
-      </section>
+        <section>
+          <h2>
+            Make sure you are insured by a reputable company like Luxe Insurance
+            Brokers that will be there when you need them
+          </h2>
+          <p>
+            As a responsible adult, you must have insurance in case of an
+            emergency. That’s why it’s essential to choose a reputable company
+            like Luxe Insurance Brokers, who will be there for you when you need
+            them most. With years of experience and a customer-first attitude,
+            Luxe Insurance Brokers is the perfect choice for all your insurance
+            needs.
+          </p>
+          <p>
+            Unlike some of the other insurance providers on the market, Luxe
+            Insurance Brokers is dedicated to providing quality service at an
+            affordable price. We understand that everyone’s needs are different,
+            which is why we offer a variety of policies to choose from. Whether
+            you’re looking for car insurance, home insurance, or pet insurance,
+            we have you covered.
+          </p>
+          <p>
+            Not only do Luxe Insurance Brokers have a wide range of policies to
+            choose from, but we also have a team of experts who are ready to
+            help you find the right one for you. Our knowledgeable staff will
+            take the time to understand your needs and recommend a policy that
+            fits your budget and lifestyle.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=6940182445390805011"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <h2>Insurance is affordable and easy to get, so there’s no reason not to have it</h2>
-        <p>Most people believe that they don’t need insurance because it’s expensive and they think that they are unlikely to ever have an accident. However, the truth is that insurance is affordable and easy to get, so there’s no reason not to have it. In fact, not having insurance can be very costly in the long run.</p>
-        <p>Insurance is a form of protection that helps you financially if something goes wrong. For example, if you are in a car accident and you are injured, your insurance will help pay for your medical expenses. Or if your house catches on fire, your insurance will help pay for the damage. Insurance can also protect you financially if you are sued for something that you did wrong.</p>
-        <p>There are many different types of insurance, and each one serves a different purpose. The most common types of insurance are car insurance, health insurance, and homeowner’s insurance. However, there are also other types of insurance such as <a href="https://luxeinsurancebrokers.com/life-insurance/">life insurance</a>, disability insurance, and pet insurance.</p>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26575.96081509137!2d-111.927678!3d33.631369!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x60507b29d5ebb813!2sLuxe%20Insurance%20Brokers!5e0!3m2!1sen!2sph!4v1649666518749!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Insurance Agency Scottsdale, Arizona</iframe
+          >
+        </section>
 
-      <section>
-        <h2>Make sure you are insured by a reputable company like Luxe Insurance Brokers that will be there when you need them</h2>
-        <p>As a responsible adult, you must have insurance in case of an emergency. That’s why it’s essential to choose a reputable company like Luxe Insurance Brokers, who will be there for you when you need them most. With years of experience and a customer-first attitude, Luxe Insurance Brokers is the perfect choice for all your insurance needs.</p>
-        <p>Unlike some of the other insurance providers on the market, Luxe Insurance Brokers is dedicated to providing quality service at an affordable price. We understand that everyone’s needs are different, which is why we offer a variety of policies to choose from. Whether you’re looking for car insurance, home insurance, or pet insurance, we have you covered.</p>
-        <p>Not only do Luxe Insurance Brokers have a wide range of policies to choose from, but we also have a team of experts who are ready to help you find the right one for you. Our knowledgeable staff will take the time to understand your needs and recommend a policy that fits your budget and lifestyle.</p>
-        <a class="button-link"
-                href="https://google.com/maps/?cid=6940182445390805011">Find Us Here!</a>
-      </section>
-      
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26575.96081509137!2d-111.927678!3d33.631369!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x60507b29d5ebb813!2sLuxe%20Insurance%20Brokers!5e0!3m2!1sen!2sph!4v1649666518749!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Insurance Agency Scottsdale, Arizona</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.tripadvisor.com.ph/Attractions-g31350-Activities-Scottsdale_Arizona.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.tripadvisor.com.ph/Attractions-g31350-Activities-Scottsdale_Arizona.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.abc15.com/news/region-northeast-valley/scottsdale"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://www.abc15.com/news/region-northeast-valley/scottsdale" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://luxeinsurancebrokers.com/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://luxeinsurancebrokers.com/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>      
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/luxeinsurancebrokers-03-22/"
+            >https://rank-fortress-digital-agency.github.io/luxeinsurancebrokers-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://luxeinsurancebrokers-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://luxeinsurancebrokers-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://glittery-daffodil-bb9dd0.netlify.app/"
+            >https://glittery-daffodil-bb9dd0.netlify.app/</a
+          >
+        </section>
+      </div>
 
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/LuxeInsuranceBrokers"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=6940182445390805011"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCZ9CaN9e7_EExQHImrlPO-w"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="https://luxeinsurancebrokers.com/">Main</a></li>
+            <li><a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/LuxeInsuranceBrokers">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=6940182445390805011">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCZ9CaN9e7_EExQHImrlPO-w">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://luxeinsurancebrokers.com/">Main</a></li>
-          <li><a href="https://goo.gl/maps/XBENp7FhcugGeiFk7">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
